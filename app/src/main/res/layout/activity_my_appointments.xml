@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3EFFFFFF"
+    tools:context=".MyAppointments">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:background="#673AB7"
+
+        android:theme="@style/AppTheme.PopupOverlay"
+        android:id="@+id/mainOne4">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/arw_bck"
+                android:src="@drawable/arrow_back"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Summary"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/help_tx"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+                android:textColor="#fff" />
+        </androidx.appcompat.widget.Toolbar></com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tvs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sorry,You don't have any appointment with a doctor. book an appointment.."
+        android:textColor="#B5000000"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:layout_centerInParent="true"
+        /> <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Appointment for Consultation"
+        android:textColor="#DC000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/txt"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/mainOne4"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/txt"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/v"
+        android:background="#27000000"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/v"
+        android:id="@+id/v2"
+        android:layout_marginTop="10dp"
+        android:background="#31000000"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/v2"
+        android:id="@+id/rv4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

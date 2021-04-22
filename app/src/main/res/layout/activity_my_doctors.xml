@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3EFFFFFF"
+    tools:context=".MyDoctorsActivity">
+<include layout="@layout/head" android:id="@+id/hu"/>  <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Doctors i have done consultations."
+        android:textColor="#DC000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/txt"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/hu"/>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/txt"
+        android:id="@+id/v2"
+        android:layout_marginTop="10dp"
+        android:background="#31000000"/>
+    <TextView
+        android:id="@+id/tvs1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sorry,You did'nt started consultation with any doctor.. Consult now "
+        android:textColor="#B5000000"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:layout_centerInParent="true"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/v2"
+        android:id="@+id/r"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

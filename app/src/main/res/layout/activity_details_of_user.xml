@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsOfUser">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:background="#673AB7"
+
+        android:theme="@style/AppTheme.PopupOverlay"
+        android:id="@+id/mainOne4">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/arw_bck"
+                android:src="@drawable/arrow_back"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consultation"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/help_txt"
+                android:textStyle="bold"
+                android:textSize="18sp"
+
+                android:textColor="#fff" />
+        </androidx.appcompat.widget.Toolbar></com.google.android.material.appbar.AppBarLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"  android:layout_below="@id/mainOne4"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/dotted_line"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+         android:layout_marginTop="20dp"
+        android:text="Book Appointment"
+        android:textColor="#D8000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/spec_name"
+
+        />   <View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_below="@id/spec_name"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/vi3"
+    android:background="#27000000"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Dermatology"
+    android:textSize="18sp"
+    android:id="@+id/con_spec"
+    android:layout_marginLeft="10dp"
+
+    android:textColor="#F5000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="by  Dr.MohanRaortggtgtyythythhyh "
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/con_spec"
+        android:id="@+id/con_dctr"
+        android:layout_marginLeft="10dp"
+
+        android:textColor="#DC000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="At Malkapuram"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/con_spec"
+            android:id="@+id/con_addr"
+            android:layout_below="@id/con_dctr"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:textColor="#BC000000"/>
+</RelativeLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:text="Customer/Patient Details"
+    android:textSize="15sp"
+    android:textStyle="italic|bold"
+    android:textColor="#FFFFFF"
+    android:layout_marginTop="15dp"
+    android:background="#1288E6"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whom ?"
+        android:textSize="16sp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#F5000000"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_edit"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    android:id="@+id/u_name" />
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="16sp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+       android:textColor="#F5000000"/>
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/rg"
+        android:layout_marginLeft="10dp" >
+    <RadioButton
+        android:id="@+id/male_u"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+
+        />
+        <RadioButton
+            android:id="@+id/fem_u"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:layout_marginLeft="10dp"
+            /></RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#F2000000"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" +91 "
+            android:textSize="16sp"
+android:background="#0F431616"
+            android:paddingTop="7dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/num_u"
+        android:padding="5dp"/></LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#F3000000"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit"
+        android:layout_margin="10dp"
+        android:id="@+id/mail_u"
+        android:padding="5dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:layout_gravity="center_horizontal">
+        <DatePicker
+            android:id="@+id/dpResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_style"
+
+            android:id="@+id/bt_setdate"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:paddingRight="10dp"
+            android:text="Select Date"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_style"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:id="@+id/bt_setime"
+            android:paddingRight="10dp"
+            android:text="Select time"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount : ₹ "
+            android:textSize="16sp"
+
+            android:layout_marginLeft="15dp"
+
+            android:textColor="#F3000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="250"
+            android:textSize="16sp"
+            android:id="@+id/con_amnt"
+
+
+            android:textColor="#F3000000"/>    </LinearLayout>
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/buttons"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_pay"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Pay Amount"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        />
+</LinearLayout>
+
+</RelativeLayout>

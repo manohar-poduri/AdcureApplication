@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+   android:background="@drawable/rv_bg"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paid :"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/name_dctr"
+                android:layout_marginLeft="10dp"
+
+                android:textColor="#050839"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ₹ "
+                    android:textColor="#050839"
+                    android:id="@+id/rupee"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200" android:textAlignment="textEnd"
+                    android:textColor="#050839"
+                    android:id="@+id/amnt_dctr_paid"
+                    android:layout_toRightOf="@id/rupee"
+                    android:layout_marginRight="20dp"
+
+                    /></RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" for Consulting with "
+                android:textColor="#050839"
+
+
+                /> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dermatology"
+            android:textColor="#050839"
+    android:id="@+id/spec_paid"
+    /> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" specialist"
+            android:textColor="#050839"
+
+
+            />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr.Naveen kumar"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/dctr_paid"
+                android:layout_marginLeft="10dp"
+
+                android:textColor="#050839"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="150dp"
+                  android:text="View Details"
+                android:textSize="10sp"
+                android:id="@+id/detai_btn"
+                android:textColor="@android:color/white"
+                android:background="#3F51B5" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:datePickerMode="calendar"
+                android:layout_marginLeft="-100dp"
+                android:layout_marginBottom="-100dp"
+                android:layout_marginTop="-100dp"
+                android:layout_marginRight="-100dp"
+                android:scaleX="0.5"
+                android:scaleY="0.5"/>
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.5"
+                android:layout_marginRight="-100dp"
+                android:scaleY="0.5" android:layout_gravity="end"
+                android:timePickerMode="spinner"
+                android:layout_marginLeft="-30dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

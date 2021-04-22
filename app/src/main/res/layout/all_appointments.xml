@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@drawable/rv_bg"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dr.Naveen Kumar"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:id="@+id/name_dctr_app"
+            android:layout_marginLeft="10dp"
+
+            android:textColor="#050839"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:id="@+id/spec_dctr_app"
+            android:text="Dermatology"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:textColor="#050839"
+                android:textSize="14sp"
+                android:text="Date : "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dte_app"
+                android:layout_marginLeft="10dp"
+                android:textColor="#050839"
+                android:textSize="14sp"
+                android:text="28-02-2021"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paid Amount : ₹ "
+                    android:textColor="#050839"
+                    android:id="@+id/rupee"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200" android:textAlignment="textEnd"
+                    android:textColor="#050839"
+                    android:id="@+id/amnt_dctr_app"
+                    android:layout_toRightOf="@id/rupee"
+                    android:layout_marginRight="20dp"
+
+                    /></RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050839"
+            android:textSize="14sp"
+
+            android:layout_marginLeft="9dp"
+            android:text="Time : "/> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:id="@+id/time_app"
+            android:layout_marginLeft="9dp"
+            android:text="28:02"/></LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="10dp"
+            android:text="Start Chat"
+            android:textSize="10sp"
+            android:id="@+id/chat_link"
+            android:textColor="@android:color/white"
+            android:background="#3F51B5"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

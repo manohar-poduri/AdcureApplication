@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DispalyingPaymert">
+    <include layout="@layout/head"
+        android:id="@+id/hed"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+ android:layout_centerInParent="true"
+        android:gravity="center" android:orientation="vertical"
+        android:background="@drawable/dotted_line"
+        android:layout_margin="10dp"
+         android:layout_below="@id/hed">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Transaction Details"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/dnme"
+            android:text="Doctor Name: Naveen Kumar"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Given Name: Naveen Kumar"
+            android:textSize="18sp"
+            android:id="@+id/unme"
+            android:textColor="@android:color/black"
+
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Given mailId: Naveen Kumar"
+        android:textSize="18sp"
+        android:id="@+id/umail"
+        android:textColor="@android:color/black"
+
+        />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Your Number: Naveen Kumar"
+        android:textSize="18sp"
+        android:id="@+id/unum"
+        android:textColor="@android:color/black"
+
+        />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/sptyp"
+        android:text="Specialist Type: Naveen Kumar"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+
+        />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/dte"
+        android:text="Date of Payment : 26-09-2021"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+
+        />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Payment Time: 23:00"
+        android:textSize="18sp"
+        android:id="@+id/tme"
+        android:textColor="@android:color/black"
+
+        />      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Paid Amount:300"
+        android:textSize="18sp"
+        android:id="@+id/amnt"
+        android:textColor="@android:color/black"
+android:layout_marginBottom="50dp"
+        />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@drawable/rv_bg"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+  >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dr.Naveen Kumar"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:id="@+id/name_dctr"
+        android:layout_marginLeft="10dp"
+
+        android:textColor="#050839"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#050839"
+        android:textSize="14sp"
+        android:id="@+id/spec_dctr"
+        android:text="Dermatology"/>  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:id="@+id/qual_dctr"
+    android:layout_marginLeft="10dp"
+    android:textColor="#C8050839"
+    android:textSize="12sp"
+    android:text="Mbbs,Dgo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:id="@+id/exp_dctr"
+        android:layout_marginLeft="10dp"
+        android:textColor="#C8050839"
+        android:textSize="12sp"
+        android:text="10 years of Experience"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hsptl_dctr"
+            android:layout_marginLeft="10dp"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:text="At Mother Clinic"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:gravity="end">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ "
+                android:textColor="#050839"
+                android:id="@+id/rupee"
+
+                />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200" android:textAlignment="textEnd"
+            android:textColor="#050839"
+          android:id="@+id/amnt_dctr"
+android:layout_toRightOf="@id/rupee"
+            android:layout_marginRight="20dp"
+
+            /></RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#050839"
+        android:textSize="14sp"
+        android:id="@+id/addr_dctr"
+        android:layout_marginLeft="9dp"
+        android:text="Malkapuram Post,Trinadhapuram"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginBottom="10dp"
+        android:text="Book Appointment"
+        android:textSize="10sp"
+        android:id="@+id/btn_dctr"
+        android:textColor="@android:color/white"
+        android:background="#3F51B5"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:datePickerMode="calendar"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginBottom="-100dp"
+            android:layout_marginTop="-100dp"
+            android:layout_marginRight="-100dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.5"
+            android:layout_marginRight="-100dp"
+            android:scaleY="0.5" android:layout_gravity="end"
+            android:timePickerMode="spinner"
+            android:layout_marginLeft="-30dp"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

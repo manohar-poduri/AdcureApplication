@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+
+    tools:context=".OtpActivity">
+    <RelativeLayout
+        android:id="@+id/design3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/path">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/app_logo"  />
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:id="@+id/num"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP Login" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:padding="7dp"
+
+        android:textAlignment="center"
+        android:hint="Enter Your Mobile Number"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_style"
+
+        android:inputType="phone" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:background="@drawable/edt_style"
+        android:textAllCaps="false"
+        android:id="@+id/number_submit_btn"
+        android:layout_gravity="center_horizontal"
+     /></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:visibility="invisible"
+        android:id="@+id/otpPro"
+       android:orientation="vertical"  android:layout_centerInParent="true">
+        <EditText
+            android:id="@+id/otp"
+            android:layout_width="match_parent"
+            android:layout_margin="30dp"
+            android:padding="5dp"
+
+            android:textAlignment="center"
+            android:hint="Enter OTP"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_style"
+
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/validate_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/edt_style"
+            android:text="Validate OTP"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</RelativeLayout>

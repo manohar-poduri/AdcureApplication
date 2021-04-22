@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.adcureapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+        android:allowBackup="true"
+        android:icon="@drawable/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".DispalyingPaymert"></activity>
+        <activity android:name=".ToPaymentsActivity" />
+        <activity android:name=".activity.DashboardActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.VideoConferenceActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyDoctorsActivity" />
+        <activity
+            android:name=".ChatActivity"
+            android:windowSoftInputMode="adjustPan">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="https" />-->
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="http" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".MyAppointments" />
+        <activity android:name=".ChatoActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".DetailsOfUser" />
+        <activity android:name=".ConsultNowActivity2" />
+        <activity android:name=".ConsultNowActivity" />
+        <activity android:name=".OtpActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name="videortc.ConnectActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="https" />-->
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="http" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="videortc.SettingsActivityrtc"
+            android:label="@string/settings_name" />
+        <activity
+            android:name="videortc.CallActivity"
+            android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
+            android:label="@string/app_name"
+            android:screenOrientation="fullUser"
+            android:theme="@style/CallActivityTheme" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_O1xyAI861eayZ0" />
+         <service
+         android:name=".SendNotificationPack.MyFireBaseMessagingService"
+         android:enabled="true"
+         android:exported="true">
+
+
+
+         <intent-filter>
+         <action android:name="com.google.firebase.MESSAGING_EVENT" />
+         </intent-filter>
+         </service>
+         <service
+         android:name=".SendNotificationPack.MyFirebaseIdService"
+         android:enabled="true"
+         android:exported="true">
+         <intent-filter>
+         <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+         </intent-filter>
+         </service>
+        <service
+            android:name=".FirebaseMsg"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.q12firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

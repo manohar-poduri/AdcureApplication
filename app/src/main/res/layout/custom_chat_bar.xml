@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/up"
+
+android:layout_marginLeft="-4dp"
+        android:src="@drawable/ic_baseline_person_pin_24"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr.Naveen kumar"
+
+            android:id="@+id/custom_profile_name"
+            android:textStyle="bold"
+            android:textSize="17sp"
+   android:layout_marginTop="2dp"
+            android:textColor="#fff" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active Consultant"
+android:layout_marginTop="2dp"
+ android:id="@+id/custom_user_last_seen"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="#fff" /></LinearLayout>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/videocl"
+        android:layout_marginLeft="15dp"
+
+        android:src="@drawable/ic_baseline_video_call_24"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/callc"
+        android:layout_marginLeft="10dp"
+android:layout_marginTop="5dp"
+        android:src="@drawable/ic_baseline_call_24"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+         android:layout_marginLeft="15dp"
+        android:id="@+id/helpc"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        android:textColor="#fff" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dts"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+
+        android:src="@drawable/ic_baseline_more_vert_24"/>
+
+
+
+</LinearLayout>

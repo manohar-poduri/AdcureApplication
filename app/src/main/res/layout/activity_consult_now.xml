@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3EFFFFFF"
+    tools:context=".ConsultNowActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:background="#673AB7"
+
+        android:theme="@style/AppTheme.PopupOverlay"
+        android:id="@+id/mainOne1">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/arw_bck"
+            android:src="@drawable/arrow_back"/>
+
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:text="Help"
+android:gravity="end"
+             android:id="@+id/help_txt"
+             android:textStyle="bold"
+             android:textSize="15sp"
+             android:layout_marginRight="10dp"
+          android:textColor="#fff" />
+    </androidx.appcompat.widget.Toolbar></com.google.android.material.appbar.AppBarLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+android:layout_below="@id/mainOne1"
+        android:id="@+id/viewPager1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/viewPager1"
+        android:layout_marginTop="5dp"
+
+        android:id="@+id/vi3"
+        android:background="#27000000"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/vi3"
+    android:id="@+id/sertxt"
+     android:textSize="15sp"
+    android:layout_marginTop="10dp"
+    android:letterSpacing="0.1"
+    android:textColor="#000"
+    android:textStyle="bold"
+    android:layout_marginLeft="15dp"
+    android:text="Know Speciality?"/>
+    <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerVieww"
+        android:layout_below="@id/sertxt"
+       android:layout_marginTop="10dp"
+        android:background="#5E3F51B5"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

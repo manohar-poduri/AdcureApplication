@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="none">
+         <item
+            android:id="@+id/nav_search"
+            android:icon="@mipmap/gen_foreground"
+            android:title="Consult Now" android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_appoi"
+            android:icon="@drawable/nav_category"
+            android:title="Appointments" android:iconTint="@android:color/white"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_settings"-->
+<!--            android:icon="@drawable/nav_settings"-->
+<!--            android:title="Settings" android:iconTint="@android:color/white"/>-->
+        <item
+            android:id="@+id/n"
+            android:icon="@drawable/dctrs"
+            android:title="My Doctors"
+            android:iconTint="@android:color/white"/>
+
+        <item
+            android:id="@+id/paymnts"
+            android:icon="@drawable/payment_s"
+            android:title="Payments"
+            android:iconTint="#000000"/></group>
+    <group android:id="@+id/menu_middle"
+        android:checkableBehavior="none">
+
+    <item
+        android:id="@+id/phar"
+        android:icon="@drawable/phar"
+        android:title="Pharmacy"
+        android:iconTint="@android:color/white"/>
+    <item
+        android:id="@+id/path"
+        android:icon="@drawable/patholo"
+        android:title="Pathology"
+        android:iconTint="@android:color/white"/>
+   </group>
+    <group android:id="@+id/menu_bottom"
+          android:checkableBehavior="none">  <item
+            android:id="@+id/nav_log"
+            android:icon="@drawable/sett"
+            android:title="Settings"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_logou"
+            android:icon="@drawable/abou"
+            android:title="About"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_logouty"
+            android:icon="@drawable/conta"
+            android:title="contact"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Logout"
+            android:iconTint="@android:color/white"/>
+    </group>
+</menu>
