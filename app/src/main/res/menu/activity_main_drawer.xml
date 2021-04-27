@@ -7,7 +7,8 @@
          <item
             android:id="@+id/nav_search"
             android:icon="@mipmap/gen_foreground"
-            android:title="Consult Now" android:iconTint="@android:color/white"/>
+            android:title="Consult Now"
+             android:iconTint="@android:color/white"/>
         <item
             android:id="@+id/nav_appoi"
             android:icon="@drawable/nav_category"

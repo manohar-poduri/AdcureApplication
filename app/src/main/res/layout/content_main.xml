@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:scrollbars="none"
-android:layout_marginTop="10dp"
+    android:scrollbars="none"
+    android:layout_marginTop="10dp"
     android:background="@drawable/bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
  <RelativeLayout
      android:layout_width="match_parent"
-
-
      android:layout_height="match_parent">
 
  <androidx.viewpager.widget.ViewPager
@@ -22,9 +20,9 @@ android:layout_marginTop="10dp"
      android:layout_marginRight="15dp"
      android:layout_marginTop="10dp"
      android:layout_marginLeft="15dp"
-      android:layout_marginBottom="5dp"
+     android:layout_marginBottom="5dp"
      android:layout_below="@+id/mainOne"
-  android:id="@+id/viewPager"/>
+     android:id="@+id/viewPager"/>
 
  <LinearLayout
      android:id="@+id/SliderDots"
@@ -37,14 +35,13 @@ android:layout_marginTop="10dp"
   <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-  android:layout_below="@id/SliderDots"
+      android:layout_below="@id/SliderDots"
 >
 
    <TextView
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-
-  android:text="Welcome to Adcure..."
+     android:text="Welcome to Adcure..."
      android:textSize="20sp"
      android:letterSpacing="0.1"
      android:textColor="@android:color/white"
@@ -53,238 +50,414 @@ android:layout_marginTop="10dp"
      android:layout_marginTop="20dp"
      android:id="@+id/txt_view"/>
 
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
- android:orientation="vertical"
-    android:id="@+id/llll"
-    android:layout_below="@id/txt_view"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    android:background="@drawable/edt_style"
-    android:layout_marginTop="15dp">
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-android:letterSpacing="0.1"
-     android:text="Consult a Specialist"
-     android:textSize="15sp"
-     android:textColor="#4700C6"
-     android:textStyle="bold"
-     android:layout_marginLeft="10dp"
-     android:layout_marginTop="10dp"
-     android:id="@+id/txt_view1"/>
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal"
-     android:layout_margin="15dp"
-    android:gravity="center_horizontal"
-  >
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:id="@+id/car"
-android:background="#FFFFFF"
-      >
-  <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:scaleType="fitStart"
-   android:background="@drawable/edt_style"
-
-      android:src="@mipmap/cardi_foreground" />
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Cardiology"
-      android:id="@+id/card_txt"
-      android:textColor="@android:color/black"
-      android:textSize="12sp"
-      android:textStyle="bold"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="5dp"/>
-
-
-  </LinearLayout>
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-android:layout_marginLeft="15dp"
-      android:id="@+id/gye"
-      android:background="#FBE5E5"
-      >
-   <ImageView
-       android:layout_width="wrap_content"
+   <LinearLayout
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:scaleType="fitXY"
+       android:orientation="vertical"
+       android:id="@+id/llll"
+       android:layout_below="@id/txt_view"
+       android:layout_marginRight="10dp"
+       android:layout_marginLeft="10dp"
+       android:background="@drawable/edt_style"
+       android:layout_marginTop="15dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.1"
+        android:text="Consult a Specialist"
+        android:textSize="15sp"
+        android:textColor="#4700C6"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txt_view1"/>
 
-       android:src="@mipmap/gen_foreground"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Gynaecology"
-       android:id="@+id/gyn_txt"
-       android:textColor="@android:color/black"
-       android:textSize="12sp"
-android:textStyle="bold"
-       android:layout_gravity="center_horizontal"
-       android:layout_marginTop="5dp"/>
-
-  </LinearLayout>
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-android:layout_marginLeft="15dp"
-      android:id="@+id/gen"
-      android:background="#FFFFFF"
-      >
-   <ImageView
-
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:scaleType="fitXY"
-
-       android:src="@mipmap/gen_p_foreground"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="General Physician"
-       android:textColor="@android:color/black"
-       android:textSize="12sp"
-       android:id="@+id/gen_txt"
-       android:textStyle="bold"
-       android:layout_gravity="center_horizontal"
-       android:layout_marginTop="5dp"/>
-
-
-  </LinearLayout>
-
-
- </LinearLayout>
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="5dp"
-     android:layout_marginRight="15dp"
-     android:layout_marginBottom="10dp"
-     android:gravity="center_horizontal"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp"
+       android:gravity="center_horizontal"
      >
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:background="#FBE5E5"
-      android:id="@+id/ped"
-      >
-   <ImageView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:scaleType="fitXY"
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:id="@+id/car"
+   android:background="#FFFFFF"
+         >
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:scaleType="fitStart"
+      android:background="@drawable/edt_style"
 
-       android:src="@mipmap/ped_foreground"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Pediatrics"
-       android:textColor="@android:color/black"
-       android:textSize="12sp"
-       android:textStyle="bold"
-       android:id="@+id/ped_txt"
+         android:src="@mipmap/cardi_foreground" />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Cardiology"
+         android:id="@+id/card_txt"
+         android:textColor="@android:color/black"
+         android:textSize="12sp"
+         android:textStyle="bold"
        android:layout_gravity="center_horizontal"
        android:layout_marginTop="5dp"/>
 
 
-  </LinearLayout>
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+     </LinearLayout>
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+   android:layout_marginLeft="15dp"
+         android:id="@+id/gye"
+         android:background="#FBE5E5"
+         >
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleType="fitXY"
+
+          android:src="@mipmap/gen_foreground"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Gynaecology"
+          android:id="@+id/gyn_txt"
+          android:textColor="@android:color/black"
+          android:textSize="12sp"
+   android:textStyle="bold"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"/>
+
+     </LinearLayout>
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+   android:layout_marginLeft="15dp"
+         android:id="@+id/gen"
+         android:background="#FFFFFF"
+         >
+      <ImageView
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleType="fitXY"
+
+          android:src="@mipmap/gen_p_foreground"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="General Physician"
+          android:textColor="@android:color/black"
+          android:textSize="12sp"
+          android:id="@+id/gen_txt"
+          android:textStyle="bold"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"/>
+
+
+     </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        >
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:background="#FBE5E5"
+         android:id="@+id/ped"
+         >
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleType="fitXY"
+
+          android:src="@mipmap/ped_foreground"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Pediatrics"
+          android:textColor="@android:color/black"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          android:id="@+id/ped_txt"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"/>
+
+
+     </LinearLayout>
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_marginLeft="15dp"
+         android:background="#FBE5E5"
+         android:id="@+id/neph">
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleType="fitXY"
+
+          android:src="@mipmap/neph_foreground"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Nephrology"
+          android:id="@+id/nep_txt"
+          android:textColor="@android:color/black"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"/>
+
+
+
+     </LinearLayout>
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_marginLeft="15dp"
+         android:background="#FBE5E5"
+         android:id="@+id/der"
+         >
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleType="fitXY"
+
+          android:src="@mipmap/der_foreground"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/der_txt"
+          android:text="Dermatology"
+          android:textColor="@android:color/black"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"/>
+
+
+     </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_margin="20dp"
+        android:id="@+id/all_speci"
+        android:background="@drawable/edt_style"
+        android:text="View All Specialists" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/pharmo"
+        android:onClick="pharma"
+        android:src="@drawable/pharma"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:id="@+id/patha"
+        android:onClick="patha"
+        android:src="@drawable/pathology"
+        />
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_below="@id/llll"
+       android:id="@+id/linearLayout"
+       android:layout_margin="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+     >
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:layout_marginLeft="15dp"
-      android:background="#FBE5E5"
-      android:id="@+id/neph">
-   <ImageView
+         android:layout_margin="10dp">
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+      android:id="@+id/textView"
+      android:text="Medical Services"
+      android:textColor="#000000"
+         android:layout_margin="10dp"
+         android:textStyle="bold"
+      android:textSize="18sp"/>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:text="Adcure take care of health through prevention, diagnosis, treatment, cure of disease, illness, injury, and other physical and mental impairments."
+         android:textSize="20sp"/>
+     </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+   </LinearLayout>
+
+   <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:scaleType="fitXY"
+       android:orientation="vertical"
+       android:layout_below="@id/linearLayout"
+       android:id="@+id/linearLayout1"
+       android:layout_margin="10dp">
 
-       android:src="@mipmap/neph_foreground"/>
-   <TextView
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        >
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_margin="10dp">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Pathology Services"
+          android:textColor="#000000"
+          android:layout_margin="10dp"
+          android:textStyle="bold"
+          android:textSize="18sp"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:text="We provide Pathology services to our patients to determine the cause and nature of diseases. It helps doctors diagnose and treat patients correctly."
+          android:textSize="20sp"/>
+     </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+   </LinearLayout>
+
+   <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Nephrology"
-       android:id="@+id/nep_txt"
-       android:textColor="@android:color/black"
-       android:textSize="12sp"
-       android:textStyle="bold"
-       android:layout_gravity="center_horizontal"
-       android:layout_marginTop="5dp"/>
+       android:orientation="vertical"
+       android:layout_below="@id/linearLayout1"
+       android:id="@+id/linearLayout2"
+       android:layout_margin="10dp">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        >
 
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_margin="10dp">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Consultancy Services"
+          android:textColor="#000000"
+          android:layout_margin="10dp"
+          android:textStyle="bold"
+          android:textSize="18sp"/>
 
-  </LinearLayout>
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:layout_marginLeft="15dp"
-      android:background="#FBE5E5"
-      android:id="@+id/der"
-      >
-   <ImageView
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:text="AdCure has empanelled consultants i.e. the senior physician/doctor who has completed their entire specialist training in their chosen specialty."
+          android:textSize="20sp"/>
+     </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+   </LinearLayout>
+
+   <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:scaleType="fitXY"
+       android:orientation="vertical"
+       android:layout_below="@id/linearLayout2"
+       android:id="@+id/linearLayout3"
+       android:layout_margin="10dp">
 
-       android:src="@mipmap/der_foreground"/>
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/der_txt"
-       android:text="Dermatology"
-       android:textColor="@android:color/black"
-       android:textSize="12sp"
-       android:textStyle="bold"
-       android:layout_gravity="center_horizontal"
-       android:layout_marginTop="5dp"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        >
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_margin="10dp">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Dialysis Services"
+          android:textColor="#000000"
+          android:layout_margin="10dp"
+          android:textStyle="bold"
+          android:textSize="18sp"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:text="Chronic Kidney Disease (Renal Failure) is being treated by dedicated Doctors to provide comprehensive care to people with kidney disorders."
+          android:textSize="20sp"/>
+     </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+   </LinearLayout>
 
 
-  </LinearLayout>
-
-
- </LinearLayout>
- <Button
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-      android:layout_margin="20dp"
-     android:id="@+id/all_speci"
-     android:background="@drawable/edt_style"
-     android:text="View All Specialists" />
- <ImageView
-     android:layout_width="match_parent"
-     android:layout_height="150dp"
-     android:id="@+id/pharmo"
-     android:onClick="pharma"
-     android:src="@drawable/pharma"
-     android:layout_marginLeft="10dp"
-     android:layout_marginRight="10dp"
-     />
- <ImageView
-     android:layout_width="match_parent"
-     android:layout_height="150dp"
-     android:layout_margin="10dp"
-     android:id="@+id/patha"
-     android:onClick="patha"
-     android:src="@drawable/pathology"
-     />
-</LinearLayout>
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -292,7 +465,7 @@ android:layout_marginLeft="15dp"
        android:textStyle="bold"
        android:textSize="25sp"
        android:textColor="@android:color/white"
-       android:layout_below="@+id/llll"
+       android:layout_below="@+id/linearLayout3"
        android:id="@+id/te"
        android:layout_marginLeft="20dp"
        android:text="Adcure" />
@@ -335,7 +508,8 @@ Health promotion/social mobilization/communication/networking Comprehensive and 
        android:orientation="vertical"
        android:layout_marginTop="20dp"
        android:layout_below="@+id/lng"
-       >  <TextView
+       >
+    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:textStyle="bold"
@@ -356,7 +530,8 @@ Health promotion/social mobilization/communication/networking Comprehensive and 
         android:src="@drawable/fb"
         android:textColor="@android:color/white"
         android:layout_marginLeft="20dp"
-    /> <ImageView
+    />
+    <ImageView
        android:layout_width="30dp"
        android:layout_height="30dp"
        android:textStyle="bold"
@@ -364,7 +539,8 @@ Health promotion/social mobilization/communication/networking Comprehensive and 
        android:src="@drawable/ins"
        android:textColor="@android:color/white"
        android:layout_marginLeft="20dp"
-       /> <ImageView
+       />
+    <ImageView
        android:layout_width="30dp"
        android:layout_height="30dp"
        android:textStyle="bold"
@@ -374,6 +550,9 @@ Health promotion/social mobilization/communication/networking Comprehensive and 
        android:textColor="@android:color/white"
        android:layout_marginLeft="20dp"
        />
-   </LinearLayout></LinearLayout>
-  </RelativeLayout></RelativeLayout></ScrollView>
+   </LinearLayout>
+   </LinearLayout>
+  </RelativeLayout>
+ </RelativeLayout>
+</ScrollView>
 

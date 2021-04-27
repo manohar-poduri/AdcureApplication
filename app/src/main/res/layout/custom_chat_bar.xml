@@ -6,39 +6,38 @@
     android:background="@color/colorPrimary">
 
 
-
-
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/up"
-
-android:layout_marginLeft="-4dp"
-        android:src="@drawable/ic_baseline_person_pin_24"/>
+        android:layout_marginLeft="-4dp"
+        android:src="@drawable/ic_baseline_person_pin_24"
+        android:layout_gravity="start"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="start">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dr.Naveen kumar"
-
             android:id="@+id/custom_profile_name"
             android:textStyle="bold"
             android:textSize="17sp"
-   android:layout_marginTop="2dp"
+            android:layout_marginTop="2dp"
             android:textColor="#fff" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Active Consultant"
-android:layout_marginTop="2dp"
- android:id="@+id/custom_user_last_seen"
+            android:layout_marginTop="2dp"
+            android:id="@+id/custom_user_last_seen"
             android:textStyle="bold"
             android:textSize="14sp"
             android:layout_marginRight="10dp"
-            android:textColor="#fff" /></LinearLayout>
+            android:textColor="#fff" />
+    </LinearLayout>
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -70,7 +69,7 @@ android:layout_marginTop="5dp"
         android:id="@+id/dts"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
-
+        android:layout_gravity="end"
         android:src="@drawable/ic_baseline_more_vert_24"/>
 
 

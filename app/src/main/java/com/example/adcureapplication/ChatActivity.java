@@ -94,7 +94,6 @@ import videortc.ConnectActivity;
 public class ChatActivity extends AppCompatActivity implements WebResponse
 {    private String token;
     private SharedPreferences sharedPreferences;
-    private String room_Id;
     private static final String TAG = "ConnectActivity";
     private static final int CONNECTION_REQUEST = 1;
     private static final int PERMISSION_REQUEST = 2;
@@ -134,6 +133,10 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 
     private ImageView iv,cl;
     private String saveCurrentTime, saveCurrentDate,myuid;
+    private String currentUserid;
+
+    private String value;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -148,7 +151,6 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 
         //  setClickListener();
         //   getSupportActionBar().setTitle("Quick App");
-        setSharedPreference();
         myuid=mAuth.getCurrentUser().getUid();
         apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -176,6 +178,29 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 
         userName.setText(messageReceiverName);
 
+        Toast.makeText(this, messageReceiverID + "", Toast.LENGTH_SHORT).show();
+
+
+//        validateRoomIDWebCall();
+//        new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false).execute();
+
+        /*FirebaseUser firebaseUser=mAuth.getCurrentUser();
+        if (firebaseUser  != null){
+            currentUserid=mAuth.getCurrentUser().getUid();
+        }
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("Users").child(currentUserid).child("Appointments").child("Room Token").child("roomId").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                MessageInputText.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
 
         SendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1001,11 +1026,8 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
                                 // User wants to try giving the permissions again.
                                 dialog.cancel();
 
-                                new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false).execute();
 
-                                validateRoomIDWebCall();
 
-                                //   connectToRoom(unme, false, false, false, 0);
                             })
                     .setNegativeButton("No",
                             (dialog, id) -> {
@@ -1018,10 +1040,32 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
         }
     };
 
+
     private void validateRoomIDWebCall() {
-        new WebCall(this, this, null, WebConstants.validateRoomId + room_Id, WebConstants.validateRoomIdCode, true).execute();
+
+        FirebaseUser firebaseUser=mAuth.getCurrentUser();
+        if (firebaseUser  != null){
+            currentUserid=mAuth.getCurrentUser().getUid();
+        }
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("Users").child(currentUserid).child("Appointments").child("Room Token").child("roomId").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                value = snapshot.getValue(String.class);
+                MessageInputText.setText(value);
+
+                new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.validateRoomId + value, WebConstants.validateRoomIdCode, true).execute();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
+
     @Override
     public void onWebResponse(String response, int callCode) {
         switch (callCode) {
@@ -1035,23 +1079,34 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
                 onVaidateRoomIdSuccess(response);
                 break;
         }
+    }
+
+    @Override
+    public void onWebResponseError(String error, int callCode) {
 
     }
 
-    private void onVaidateRoomIdSuccess(String response) {
-        Log.e("responsevalidate", response);
+    private void onGetRoomIdSuccess(String response) {
+        Log.e("responseDashboard", response);
+
         try {
             JSONObject jsonObject = new JSONObject(response);
-            if (jsonObject.optString("result").trim().equalsIgnoreCase("40001")) {
-                Toast.makeText(this, jsonObject.optString("error"), Toast.LENGTH_SHORT).show();
-            } else {
-                savePreferences();
-                getRoomTokenWebCall();
-            }
+            value = jsonObject.optJSONObject("room").optString("room_id");
+            validateRoomIDWebCall();
+            Log.d("roomId", "onGetRoomIdSuccess: " + jsonObject);
         } catch (JSONException e) {
+
             e.printStackTrace();
         }
 
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //if (!sharedPreferences.getString("room_id", "").isEmpty()) {
+                value=sharedPreferences.getString("room_id", "");
+
+            }
+        });
     }
 
     private void onGetTokenSuccess(String response) {
@@ -1074,105 +1129,32 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
         }
     }
 
-    private void onGetRoomIdSuccess(String response) {
-        Log.e("responseDashboard", response);
 
+    private void onVaidateRoomIdSuccess(String response) {
+        Log.e("responsevalidate", response);
         try {
             JSONObject jsonObject = new JSONObject(response);
-            room_Id = jsonObject.optJSONObject("room").optString("room_id");
-            Log.d("roomId", "onGetRoomIdSuccess: " + jsonObject);
-        } catch (JSONException e) {
-
-            e.printStackTrace();
-        }
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //if (!sharedPreferences.getString("room_id", "").isEmpty()) {
-                room_Id=sharedPreferences.getString("room_id", "");
+            if (jsonObject.optString("result").trim().equalsIgnoreCase("40001")) {
+                Toast.makeText(this, jsonObject.optString("error"), Toast.LENGTH_SHORT).show();
+            } else {
+                savePreferences();
+                getRoomTokenWebCall(jsonObject.optJSONObject("room").optString("room_id"));
 
             }
-        });
-    }
-
-    @Override
-    public void onWebResponseError(String error, int callCode) {
-        Log.e("errorDashboard", error);
-    }
-
-    private void setSharedPreference() {
-        if (sharedPreferences != null) {
-            if (!sharedPreferences.getString("name", "").isEmpty()) {
-                messageReceiverName=sharedPreferences.getString("name", "");
-            }
-            if (!sharedPreferences.getString("room_id", "").isEmpty()) {
-                room_Id=sharedPreferences.getString("room_id", "");
-            }
-        }
-    }
-
-
-
-
-
-    private JSONObject jsonObjectToSend() {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("name", "Test Dev Room");
-            jsonObject.put("settings", getSettingsObject());
-            jsonObject.put("data", getDataObject());
-            jsonObject.put("sip", getSIPObject());
-            jsonObject.put("owner_ref", "fadaADADAAee");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return jsonObject;
+
     }
 
-    private JSONObject getSIPObject() {
-        JSONObject jsonObject = new JSONObject();
-        return jsonObject;
-    }
-
-    private JSONObject getDataObject() {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("name", messageReceiverName);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject;
-    }
-
-    private JSONObject getSettingsObject() {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("description", "Testing");
-            jsonObject.put("scheduled", false);
-            jsonObject.put("scheduled_time", "");
-            jsonObject.put("duration", 50);
-            jsonObject.put("participants", 10);
-            jsonObject.put("billing_code", 1234);
-            jsonObject.put("auto_recording", false);
-            jsonObject.put("active_talker", true);
-            jsonObject.put("quality", "HD");
-            jsonObject.put("wait_moderator", false);
-            jsonObject.put("adhoc", false);
-            jsonObject.put("mode", "group");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject;
-    }
-
-    private void getRoomTokenWebCall() {
+    private void getRoomTokenWebCall(String value) {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("name", messageReceiverName);
             jsonObject.put("role", "participant");
             jsonObject.put("user_ref", "2236");
-            jsonObject.put("roomId", room_Id);
+            jsonObject.put("roomId", value);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -1185,7 +1167,7 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
     private void savePreferences() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("name", messageReceiverName);
-        editor.putString("room_id", room_Id);
+        editor.putString("room_id", value);
         editor.commit();
 
     }

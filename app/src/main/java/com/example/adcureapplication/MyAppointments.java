@@ -25,7 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MyAppointments extends AppCompatActivity {
     private DatabaseReference productRef,spe;
-    private RecyclerView recyclerView;String currentUserid;private FirebaseAuth mAuth;
+    private RecyclerView recyclerView;
+    String currentUserid;
+    private FirebaseAuth mAuth;
     private TextView tw;  private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

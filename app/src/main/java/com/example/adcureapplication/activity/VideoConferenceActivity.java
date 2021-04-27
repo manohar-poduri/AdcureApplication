@@ -382,7 +382,7 @@ public class VideoConferenceActivity extends AppCompatActivity
         setUI();
         setClickListener();
         gson = new Gson();
-        getSupportActionBar().setTitle("QuickApp");
+//        getSupportActionBar().setTitle("QuickApp");
         enxRtc = new EnxRtc(this, this, this);
         localStream = enxRtc.joinRoom(token, getLocalStreamJsonObject(), getReconnectInfo(), new JSONArray());
         enxPlayerView = new EnxPlayerView(this, EnxPlayerView.ScalingType.SCALE_ASPECT_BALANCED, true);
