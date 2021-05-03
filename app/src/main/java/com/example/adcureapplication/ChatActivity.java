@@ -77,6 +77,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -184,7 +189,7 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 //        validateRoomIDWebCall();
 //        new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false).execute();
 
-        /*FirebaseUser firebaseUser=mAuth.getCurrentUser();
+        FirebaseUser firebaseUser=mAuth.getCurrentUser();
         if (firebaseUser  != null){
             currentUserid=mAuth.getCurrentUser().getUid();
         }
@@ -192,15 +197,16 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
         databaseReference.child("Users").child(currentUserid).child("Appointments").child("Room Token").child("roomId").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String value = snapshot.getValue(String.class);
+                value = snapshot.getValue(String.class);
                 MessageInputText.setText(value);
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         SendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,6 +230,9 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 //                    }
 //                });
                 SendMessage();
+
+                validateRoomIDWebCall();
+
             }
         });
 
@@ -314,6 +323,7 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 //            }
 //        });
     }
+
 
     private void IntializeControllers()
     {
@@ -1043,26 +1053,8 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 
     private void validateRoomIDWebCall() {
 
-        FirebaseUser firebaseUser=mAuth.getCurrentUser();
-        if (firebaseUser  != null){
-            currentUserid=mAuth.getCurrentUser().getUid();
-        }
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("Users").child(currentUserid).child("Appointments").child("Room Token").child("roomId").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                value = snapshot.getValue(String.class);
-                MessageInputText.setText(value);
+        new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.validateRoomId + value, WebConstants.validateRoomIdCode, true).execute();
 
-                new WebCall(ChatActivity.this, ChatActivity.this, null, WebConstants.validateRoomId + value, WebConstants.validateRoomIdCode, true).execute();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
     }
 

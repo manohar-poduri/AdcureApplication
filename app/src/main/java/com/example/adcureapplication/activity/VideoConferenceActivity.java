@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adcureapplication.R;
 import com.example.adcureapplication.utilities.OnDragTouchListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -66,6 +68,10 @@ public class VideoConferenceActivity extends AppCompatActivity
     int PERMISSION_ALL = 1;
 
     RecyclerView mRecyclerView;
+
+    private String UID,roomID;
+
+
     boolean touch = false;
     String[] PERMISSIONS = {
             android.Manifest.permission.CAMERA,
@@ -78,6 +84,7 @@ public class VideoConferenceActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_video_conference);
         getPreviousIntent();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -87,6 +94,9 @@ public class VideoConferenceActivity extends AppCompatActivity
                 initialize();
             }
         }
+
+        UID = getIntent().getStringExtra("name");
+
     }
 
     @Override
@@ -278,6 +288,10 @@ public class VideoConferenceActivity extends AppCompatActivity
         switch (view.getId()) {
             case R.id.disconnect:
                 roomDisconnect();
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                databaseReference.child("Users").child(UID).child("Appointments").child("Room Token").removeValue();
+
                 break;
             case R.id.mute:
                 if (localStream != null) {
