@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -133,35 +134,62 @@ private LinearLayout layout1,layout2;
 
         };
     }
+    private void signInWithPhoneauthCredential(PhoneAuthCredential credential) {
 
-    private void signInWithPhoneauthCredential(PhoneAuthCredential credential){
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(OtpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+
+                        if (task.isSuccessful()) {
                             final String currentUserid=mAuth.getCurrentUser().getUid();
+                            final String currentPhone=mAuth.getCurrentUser().getPhoneNumber();
                             final String phone="+91"+phoneNumber.getText().toString();
                             rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if(!(snapshot.child("Users").child(currentUserid).exists())) {
-                                        HashMap<String, Object> hashMap = new HashMap<>();
-                                        hashMap.put("phone", phone);
-                                        rootRef.child("Users").child(currentUserid).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    if (!(snapshot.child("Users").child(currentUserid).exists())) {
+
+                                        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(data -> {
+
+                                            String token = data.getResult().getToken();
+                                            HashMap<String, Object> hashMap1 = new HashMap<>();
+                                            hashMap1.put("token",token);
+                                            hashMap1.put("phone", phone);
+
+                                            rootRef.child("Users").child(currentUserid).child("Details").updateChildren(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                    if(task.isSuccessful()){
+
+                                                        sendUserToMainActivity();
+                                                        Toast.makeText(OtpActivity.this, "Loggedin successfully..", Toast.LENGTH_SHORT).show();
+                                                        loadingbar.dismiss();
+                                                    }else {
+                                                        Toast.makeText(OtpActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
+                                                        loadingbar.dismiss();
+                                                    }
+
+                                                }
+                                            });
+                                        });
+                                        /*rootRef.child("All Doctors").child(currentPhone).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
 
                                                     sendUserToMainActivity();
-                                                    Toast.makeText(OtpActivity.this, "Loggedin successfully..", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(com.example.adcuredoctorapp.OtpActivity.this, "Loggedin successfully..", Toast.LENGTH_SHORT).show();
                                                     loadingbar.dismiss();
                                                 }else{
-                                                    Toast.makeText(OtpActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(com.example.adcuredoctorapp.OtpActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
                                                     loadingbar.dismiss();
                                                 }
                                             }
-                                        });
+                                        });*/
                                     }
                                 }
 
@@ -179,10 +207,72 @@ private LinearLayout layout1,layout2;
                         }
                     }
                 });
+//
+    }
+
+/*
+    private void signInWithPhoneauthCredential(PhoneAuthCredential credential){
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            final String currentUserid=mAuth.getCurrentUser().getUid();
+                            final String phone="+91"+phoneNumber.getText().toString();
+                            rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                    if (!(snapshot.child("Users").child(currentUserid).exists())){
+
+                                        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(data -> {
+
+                                            String token = data.getResult().getToken();
+                                            HashMap<String, Object> hashMap1 = new HashMap<>();
+                                            hashMap1.put("token",token);
+                                            hashMap1.put("phone", phone);
+
+                                            rootRef.child("Users").child(currentUserid).child("Details").updateChildren(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                    if(task.isSuccessful()){
+
+                                                        sendUserToMainActivity();
+                                                        Toast.makeText(com.example.adcureapplication.OtpActivity.this, "Loggedin successfully..", Toast.LENGTH_SHORT).show();
+                                                        loadingbar.dismiss();
+                                                    }else {
+                                                        Toast.makeText(com.example.adcureapplication.OtpActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
+                                                        loadingbar.dismiss();
+                                                    }
+
+                                                }
+                                            });
+                                        });
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+
+                            loadingbar.dismiss();
+                            Toast.makeText(OtpActivity.this, "Congratulations,you're logged in successfully..", Toast.LENGTH_SHORT).show();
+                            sendUserToMainActivity();
+                        }else {
+                            String msg=task.getException().toString();
+                            Toast.makeText(OtpActivity.this, "Error:"+msg, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
 
 
     }
+*/
 
     private void sendUserToMainActivity() {
         Intent intent=new Intent(OtpActivity.this,HomeActivity.class);

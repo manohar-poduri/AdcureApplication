@@ -1,11 +1,14 @@
 package com.example.adcureapplication.activity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -22,10 +25,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.adcureapplication.AllConstants;
 import com.example.adcureapplication.R;
+import com.example.adcureapplication.Sending.SendMediaService;
 import com.example.adcureapplication.utilities.OnDragTouchListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -33,7 +47,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import enx_rtc_android.Controller.EnxActiveTalkerViewObserver;
 import enx_rtc_android.Controller.EnxPlayerView;
@@ -43,6 +59,8 @@ import enx_rtc_android.Controller.EnxRoomObserver;
 import enx_rtc_android.Controller.EnxRtc;
 import enx_rtc_android.Controller.EnxStream;
 import enx_rtc_android.Controller.EnxStreamObserver;
+
+import static com.google.common.reflect.Reflection.initialize;
 
 
 public class VideoConferenceActivity extends AppCompatActivity
@@ -95,8 +113,93 @@ public class VideoConferenceActivity extends AppCompatActivity
             }
         }
 
-        UID = getIntent().getStringExtra("name");
+        UID = getIntent().getStringExtra("ID");
+        getToken();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && requestCode == 300) {
+            if (data != null) {
+                //  ArrayList<String> selectedImages = data.getStringArrayListExtra(Pix.IMAGE_RESULTS);
+
+//                if (chatID == null)
+//                    Toast.makeText(this, "Send simple message first", Toast.LENGTH_SHORT).show();
+//                else {
+
+                Intent intent = new Intent(VideoConferenceActivity.this, SendMediaService.class);
+                intent.putExtra("hisID", UID);
+                //        intent.putStringArrayListExtra("media", selectedImages);
+
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O)
+                    startForegroundService(intent);
+                else startService(intent);
+            }
+        }
+    }
+
+    private void getToken() {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Users").child(UID).child("Details");
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String token = snapshot.child("token").getValue().toString();
+
+
+                JSONObject to = new JSONObject();
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("title", "myName");
+                    data.put("message", "message");
+                    data.put("hisID", UID);
+                    //data.put("hisImage", myImage);
+                    to.put("to", token);
+                    to.put("data", data);
+
+                    sendNotification(to);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void sendNotification(JSONObject to) {
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, AllConstants.NOTIFICATION_URL, to, response -> {
+            Log.d("notification", "sendNotification: " + response);
+        }, error -> {
+            Log.d("notification", "sendNotification: " + error);
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("Authorization", "key=" + AllConstants.SERVER_KEY);
+                map.put("Content-Type", "application/json");
+                return map;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        request.setRetryPolicy(new DefaultRetryPolicy(30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(request);
     }
 
     @Override
@@ -628,4 +731,5 @@ public class VideoConferenceActivity extends AppCompatActivity
         }
 
     }
+
 }

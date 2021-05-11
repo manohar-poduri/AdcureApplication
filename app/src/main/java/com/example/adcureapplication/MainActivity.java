@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
@@ -143,11 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 if(mAuth.getCurrentUser().isEmailVerified()){
                                     final String currentUserid=mAuth.getCurrentUser().getUid();
-                             rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                  @Override
                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
                                      if (!(snapshot.child("Users").child(currentUserid).exists())) {
-                                         HashMap<String, Object> hashMap = new HashMap<>();
+                                         /*HashMap<String, Object> hashMap = new HashMap<>();
                                          hashMap.put("name", email);
 
                                          rootRef.child("Users").child(currentUserid).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -166,6 +167,34 @@ public class MainActivity extends AppCompatActivity {
                                                      loadingbar.dismiss();
                                                  }
                                              }
+                                         });*/
+                                         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(data -> {
+
+                                             String token = data.getResult().getToken();
+                                             HashMap<String, Object> hashMap1 = new HashMap<>();
+                                             hashMap1.put("token",token);
+                                             hashMap1.put("email", email);
+
+                                             rootRef.child("Users").child(currentUserid).child("Details").updateChildren(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                 @Override
+                                                 public void onComplete(@NonNull Task<Void> task) {
+
+                                                     if(task.isSuccessful()){
+
+                                                         sendUserToMainActivity();
+                                                         Intent mintent=new Intent(MainActivity.this,HomeActivity.class);
+                                                         mintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                         startActivity(mintent);
+                                                         finish();
+                                                         Toast.makeText(com.example.adcureapplication.MainActivity.this, "Loggedin successfully..", Toast.LENGTH_SHORT).show();
+                                                         loadingbar.dismiss();
+                                                     }else {
+                                                         Toast.makeText(com.example.adcureapplication.MainActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
+                                                         loadingbar.dismiss();
+                                                     }
+
+                                                 }
+                                             });
                                          });
                                      }else if (task.isSuccessful()){
                                           sendUserToMainActivity();

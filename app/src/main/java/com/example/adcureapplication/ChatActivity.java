@@ -236,15 +236,15 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
             }
         });
 
-        UpdateToken();
+//        UpdateToken();
         DisplayLastSeen();
     }
-    private void UpdateToken(){
+    /*private void UpdateToken(){
         FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         String refreshToken= FirebaseInstanceId.getInstance().getToken();
         Token token= new Token(refreshToken);
         FirebaseDatabase.getInstance().getReference("Tokens").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token);
-    }
+    }*/
 
     private void checkStatus(){
         FirebaseUser user=mAuth.getCurrentUser();
@@ -275,6 +275,9 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
 //            }
 //        });
 //    }
+
+
+
     public void sendNotifications(String hisuid, String name, String message) {
         DatabaseReference allTokens=FirebaseDatabase.getInstance().getReference("Tokens");
         Query query=allTokens.orderByKey().equalTo(hisuid);
@@ -1112,6 +1115,7 @@ public class ChatActivity extends AppCompatActivity implements WebResponse
                 Intent intent = new Intent(ChatActivity.this, VideoConferenceActivity.class);
                 intent.putExtra("token", token);
                 intent.putExtra("name", messageReceiverName);
+                intent.putExtra("ID",messageReceiverID);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, jsonObject.optString("error"), Toast.LENGTH_SHORT).show();
